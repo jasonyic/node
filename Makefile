@@ -234,4 +234,7 @@ localnet-stop:
 # unless there is a reason not to.
 # https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
 .PHONY: build install test test_unit build-linux build-docker-node localnet-start localnet-stop
-.PHONY: lint install_lint
+.PHONY: lint install_lint docker
+
+docker:
+	docker build --pull -t bnb-chain/bsc:latest -f Dockerfile .
